@@ -1,0 +1,538 @@
+'solc --version' running
+'solc @openzeppelin=./node_modules/@openzeppelin contracts/MyToken.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/mnt/c/Users/maclo/Desktop/metana-bootcamp/dev/metana-bootcamp/module-4/contracts' running
+INFO:Detectors:
+GodMode.authoritativeTransferFrom(address,address,uint256) (contracts/GodMode.sol#33-36) uses arbitrary from in transferFrom: token.transferFrom(from,to,amount) (contracts/GodMode.sol#35)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#arbitrary-from-in-transferfrom
+INFO:Detectors:
+GodMode.authoritativeTransferFrom(address,address,uint256) (contracts/GodMode.sol#33-36) ignores return value by token.transferFrom(from,to,amount) (contracts/GodMode.sol#35)
+TokenSale.buyTokens() (contracts/TokenSale.sol#33-48) ignores return value by myToken.transfer(msg.sender,myToken.balanceOf(address(this))) (contracts/TokenSale.sol#44)
+TokenSale.buyTokens() (contracts/TokenSale.sol#33-48) ignores return value by myToken.transfer(msg.sender,TOKEN_BUY_AMOUNT) (contracts/TokenSale.sol#46)
+TokenSale.sellBack(uint256) (contracts/TokenSale.sol#50-61) ignores return value by myToken.transferFrom(msg.sender,address(this),amount) (contracts/TokenSale.sol#58)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+MyToken.configTokenSaleContract(address)._tokenSaleContract (contracts/MyToken.sol#26) lacks a zero-check on :
+		- tokenSaleContract = address(_tokenSaleContract) (contracts/MyToken.sol#28)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Context._contextSuffixLength() (node_modules/@openzeppelin/contracts/utils/Context.sol#25-27) is never used and should be removed
+Context._msgData() (node_modules/@openzeppelin/contracts/utils/Context.sol#21-23) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+INFO:Detectors:
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol#3)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Context.sol#4)
+	- ^0.8.20 (contracts/GodMode.sol#2)
+	- ^0.8.20 (contracts/MyToken.sol#2)
+	- ^0.8.20 (contracts/TokenSale.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Parameter MyToken.configTokenSaleContract(address)._tokenSaleContract (contracts/MyToken.sol#26) is not in mixedCase
+Parameter MyToken.isAdmin(address)._addr (contracts/MyToken.sol#32) is not in mixedCase
+Parameter MyToken.addAdmin(address)._admin (contracts/MyToken.sol#36) is not in mixedCase
+Parameter MyToken.removeAdmin(address)._admin (contracts/MyToken.sol#44) is not in mixedCase
+Parameter MyToken.externalApprove(address,address,uint256)._owner (contracts/MyToken.sol#89) is not in mixedCase
+Variable TokenSale.TOKEN_SELL_PRICE_WEI (contracts/TokenSale.sol#11) is not in mixedCase
+Variable TokenSale.TOKEN_BUY_PRICE_WEI (contracts/TokenSale.sol#13) is not in mixedCase
+Variable TokenSale.TOKEN_BUY_AMOUNT (contracts/TokenSale.sol#14) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+TokenSale.TOKEN_BUY_AMOUNT (contracts/TokenSale.sol#14) should be constant 
+TokenSale.TOKEN_BUY_PRICE_WEI (contracts/TokenSale.sol#13) should be constant 
+TokenSale.TOKEN_SELL_PRICE_WEI (contracts/TokenSale.sol#11) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+GodMode.owner (contracts/GodMode.sol#7) should be immutable 
+GodMode.token (contracts/GodMode.sol#8) should be immutable 
+MyToken.owner (contracts/MyToken.sol#8) should be immutable 
+TokenSale.godMode (contracts/TokenSale.sol#10) should be immutable 
+TokenSale.myToken (contracts/TokenSale.sol#9) should be immutable 
+TokenSale.owner (contracts/TokenSale.sol#8) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:contracts/MyToken.sol analyzed (11 contracts with 100 detectors), 26 result(s) found
+'solc --version' running
+'solc @openzeppelin=./node_modules/@openzeppelin contracts/TokenSale.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/mnt/c/Users/maclo/Desktop/metana-bootcamp/dev/metana-bootcamp/module-4/contracts' running
+INFO:Detectors:
+GodMode.authoritativeTransferFrom(address,address,uint256) (contracts/GodMode.sol#33-36) uses arbitrary from in transferFrom: token.transferFrom(from,to,amount) (contracts/GodMode.sol#35)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#arbitrary-from-in-transferfrom
+INFO:Detectors:
+GodMode.authoritativeTransferFrom(address,address,uint256) (contracts/GodMode.sol#33-36) ignores return value by token.transferFrom(from,to,amount) (contracts/GodMode.sol#35)
+TokenSale.buyTokens() (contracts/TokenSale.sol#33-48) ignores return value by myToken.transfer(msg.sender,myToken.balanceOf(address(this))) (contracts/TokenSale.sol#44)
+TokenSale.buyTokens() (contracts/TokenSale.sol#33-48) ignores return value by myToken.transfer(msg.sender,TOKEN_BUY_AMOUNT) (contracts/TokenSale.sol#46)
+TokenSale.sellBack(uint256) (contracts/TokenSale.sol#50-61) ignores return value by myToken.transferFrom(msg.sender,address(this),amount) (contracts/TokenSale.sol#58)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+MyToken.configTokenSaleContract(address)._tokenSaleContract (contracts/MyToken.sol#26) lacks a zero-check on :
+		- tokenSaleContract = address(_tokenSaleContract) (contracts/MyToken.sol#28)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Context._contextSuffixLength() (node_modules/@openzeppelin/contracts/utils/Context.sol#25-27) is never used and should be removed
+Context._msgData() (node_modules/@openzeppelin/contracts/utils/Context.sol#21-23) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+INFO:Detectors:
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol#3)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Context.sol#4)
+	- ^0.8.20 (contracts/GodMode.sol#2)
+	- ^0.8.20 (contracts/MyToken.sol#2)
+	- ^0.8.20 (contracts/TokenSale.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Parameter MyToken.configTokenSaleContract(address)._tokenSaleContract (contracts/MyToken.sol#26) is not in mixedCase
+Parameter MyToken.isAdmin(address)._addr (contracts/MyToken.sol#32) is not in mixedCase
+Parameter MyToken.addAdmin(address)._admin (contracts/MyToken.sol#36) is not in mixedCase
+Parameter MyToken.removeAdmin(address)._admin (contracts/MyToken.sol#44) is not in mixedCase
+Parameter MyToken.externalApprove(address,address,uint256)._owner (contracts/MyToken.sol#89) is not in mixedCase
+Variable TokenSale.TOKEN_SELL_PRICE_WEI (contracts/TokenSale.sol#11) is not in mixedCase
+Variable TokenSale.TOKEN_BUY_PRICE_WEI (contracts/TokenSale.sol#13) is not in mixedCase
+Variable TokenSale.TOKEN_BUY_AMOUNT (contracts/TokenSale.sol#14) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+TokenSale.TOKEN_BUY_AMOUNT (contracts/TokenSale.sol#14) should be constant 
+TokenSale.TOKEN_BUY_PRICE_WEI (contracts/TokenSale.sol#13) should be constant 
+TokenSale.TOKEN_SELL_PRICE_WEI (contracts/TokenSale.sol#11) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+GodMode.owner (contracts/GodMode.sol#7) should be immutable 
+GodMode.token (contracts/GodMode.sol#8) should be immutable 
+MyToken.owner (contracts/MyToken.sol#8) should be immutable 
+TokenSale.godMode (contracts/TokenSale.sol#10) should be immutable 
+TokenSale.myToken (contracts/TokenSale.sol#9) should be immutable 
+TokenSale.owner (contracts/TokenSale.sol#8) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:contracts/TokenSale.sol analyzed (11 contracts with 100 detectors), 26 result(s) found
+'solc --version' running
+'solc @openzeppelin=./node_modules/@openzeppelin contracts/My1155.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/mnt/c/Users/maclo/Desktop/metana-bootcamp/dev/metana-bootcamp/module-4/contracts' running
+INFO:Detectors:
+My1155.uri(uint256) (contracts/My1155.sol#32-34) calls abi.encodePacked() with multiple dynamic arguments:
+	- string(abi.encodePacked(mdBaseUri,id.toString(),.json)) (contracts/My1155.sol#33)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#abi-encodePacked-collision
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inverse = (3 * denominator) ^ 2 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#257)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse = (3 * denominator) ^ 2 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#257)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#261)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#262)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#263)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#264)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#265)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#266)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- low = low / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#245)
+	- result = low * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#272)
+Math.invMod(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#315-361) performs a multiplication on the result of a division:
+	- quotient = gcd / remainder (node_modules/@openzeppelin/contracts/utils/math/Math.sol#337)
+	- (gcd,remainder) = (remainder,gcd - remainder * quotient) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#339-346)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+My1155.mintFree(uint256) (contracts/My1155.sol#41-50) contains a tautology or contradiction:
+	- require(bool,string)(id >= 0 && id <= 2,Invalid token ID) (contracts/My1155.sol#42)
+My1155.forgeMint(address,uint256,uint256) (contracts/My1155.sol#52-56) contains a tautology or contradiction:
+	- require(bool,string)(id >= 0 && id <= 6,Invalid token ID) (contracts/My1155.sol#54)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+INFO:Detectors:
+My1155.setForgeContract(address)._forge (contracts/My1155.sol#36) lacks a zero-check on :
+		- forgeContract = _forge (contracts/My1155.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+My1155.mintFree(uint256) (contracts/My1155.sol#41-50) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp >= lastMintTime[msg.sender] + FREE_MINT_COOLDOWN_SECS,Cooldown: Wait 1 min) (contracts/My1155.sol#43-46)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+ERC1155._asSingletonArrays(uint256,uint256) (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#380-400) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#384-399)
+ERC1155Utils.checkOnERC1155Received(address,address,address,uint256,uint256,bytes) (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#25-50) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#44-46)
+ERC1155Utils.checkOnERC1155BatchReceived(address,address,address,uint256[],uint256[],bytes) (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#60-87) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#81-83)
+Arrays._begin(uint256[]) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#142-146) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#143-145)
+Arrays._mload(uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#161-165) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#162-164)
+Arrays._swap(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#170-177) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#171-176)
+Arrays._castToUint256Array(address[]) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#180-184) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#181-183)
+Arrays._castToUint256Array(bytes32[]) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#187-191) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#188-190)
+Arrays._castToUint256Comp(function(address,address) returns(bool)) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#194-200) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#197-199)
+Arrays._castToUint256Comp(function(bytes32,bytes32) returns(bool)) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#203-209) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#206-208)
+Arrays.unsafeAccess(address[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#383-389) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#385-387)
+Arrays.unsafeAccess(bytes32[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#396-402) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#398-400)
+Arrays.unsafeAccess(uint256[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#409-415) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#411-413)
+Arrays.unsafeMemoryAccess(address[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#422-426) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#423-425)
+Arrays.unsafeMemoryAccess(bytes32[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#433-437) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#434-436)
+Arrays.unsafeMemoryAccess(uint256[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#444-448) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#445-447)
+Arrays.unsafeSetLength(address[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#455-459) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#456-458)
+Arrays.unsafeSetLength(bytes32[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#466-470) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#467-469)
+Arrays.unsafeSetLength(uint256[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#477-481) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#478-480)
+Panic.panic(uint256) (node_modules/@openzeppelin/contracts/utils/Panic.sol#50-56) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Panic.sol#51-55)
+SlotDerivation.erc7201Slot(string) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#45-50) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#46-49)
+SlotDerivation.deriveArray(bytes32) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#64-69) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#65-68)
+SlotDerivation.deriveMapping(bytes32,address) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#74-80) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#75-79)
+SlotDerivation.deriveMapping(bytes32,bool) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#85-91) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#86-90)
+SlotDerivation.deriveMapping(bytes32,bytes32) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#96-102) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#97-101)
+SlotDerivation.deriveMapping(bytes32,uint256) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#107-113) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#108-112)
+SlotDerivation.deriveMapping(bytes32,int256) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#118-124) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#119-123)
+SlotDerivation.deriveMapping(bytes32,string) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#129-139) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#130-138)
+SlotDerivation.deriveMapping(bytes32,bytes) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#144-154) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#145-153)
+StorageSlot.getAddressSlot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#66-70) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#67-69)
+StorageSlot.getBooleanSlot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#75-79) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#76-78)
+StorageSlot.getBytes32Slot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#84-88) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#85-87)
+StorageSlot.getUint256Slot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#93-97) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#94-96)
+StorageSlot.getInt256Slot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#102-106) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#103-105)
+StorageSlot.getStringSlot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#111-115) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#112-114)
+StorageSlot.getStringSlot(string) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#120-124) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#121-123)
+StorageSlot.getBytesSlot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#129-133) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#130-132)
+StorageSlot.getBytesSlot(bytes) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#138-142) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#139-141)
+Strings.toString(uint256) (node_modules/@openzeppelin/contracts/utils/Strings.sol#45-63) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#50-52)
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#55-57)
+Strings.toChecksumHexString(address) (node_modules/@openzeppelin/contracts/utils/Strings.sol#111-129) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#116-118)
+Strings.escapeJSON(string) (node_modules/@openzeppelin/contracts/utils/Strings.sol#446-476) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#470-473)
+Strings._unsafeReadBytesOffset(bytes,uint256) (node_modules/@openzeppelin/contracts/utils/Strings.sol#484-489) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#486-488)
+Math.add512(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#25-30) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#26-29)
+Math.mul512(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#37-46) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#41-45)
+Math.tryMul(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#73-84) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#76-80)
+Math.tryDiv(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#89-97) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#92-95)
+Math.tryMod(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#102-110) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#105-108)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#227-234)
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#240-249)
+Math.tryModExp(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#409-433) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#411-432)
+Math.tryModExp(bytes,bytes,bytes) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#449-471) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#461-470)
+Math.log2(uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#612-651) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#648-650)
+SafeCast.toUint(bool) (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#1157-1161) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#1158-1160)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+INFO:Detectors:
+Context._contextSuffixLength() (node_modules/@openzeppelin/contracts/utils/Context.sol#25-27) is never used and should be removed
+Context._msgData() (node_modules/@openzeppelin/contracts/utils/Context.sol#21-23) is never used and should be removed
+ERC1155._burnBatch(address,uint256[],uint256[]) (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#353-358) is never used and should be removed
+ERC1155._mintBatch(address,uint256[],uint256[],bytes) (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#317-322) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+INFO:Detectors:
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/access/Ownable.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol#3)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Arrays.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Comparators.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Context.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Panic.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Strings.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol#4)
+	- ^0.8.20 (contracts/My1155.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Parameter My1155.setBaseUri(string)._baseUri (contracts/My1155.sol#28) is not in mixedCase
+Parameter My1155.setForgeContract(address)._forge (contracts/My1155.sol#36) is not in mixedCase
+Variable My1155.FREE_MINT_COOLDOWN_SECS (contracts/My1155.sol#18) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+Math.log2(uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#612-651) uses literals with too many digits:
+	- r = r | byte(uint256,uint256)(x >> r,0x0000010102020202030303030303030300000000000000000000000000000000) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#649)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+INFO:Detectors:
+My1155.FREE_MINT_COOLDOWN_SECS (contracts/My1155.sol#18) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Slither:contracts/My1155.sol analyzed (22 contracts with 100 detectors), 77 result(s) found
+'solc --version' running
+'solc @openzeppelin=./node_modules/@openzeppelin contracts/Forge.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/mnt/c/Users/maclo/Desktop/metana-bootcamp/dev/metana-bootcamp/module-4/contracts' running
+INFO:Detectors:
+My1155.uri(uint256) (contracts/My1155.sol#32-34) calls abi.encodePacked() with multiple dynamic arguments:
+	- string(abi.encodePacked(mdBaseUri,id.toString(),.json)) (contracts/My1155.sol#33)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#abi-encodePacked-collision
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inverse = (3 * denominator) ^ 2 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#257)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse = (3 * denominator) ^ 2 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#257)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#261)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#262)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#263)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#264)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#265)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#242)
+	- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#266)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) performs a multiplication on the result of a division:
+	- low = low / twos (node_modules/@openzeppelin/contracts/utils/math/Math.sol#245)
+	- result = low * inverse (node_modules/@openzeppelin/contracts/utils/math/Math.sol#272)
+Math.invMod(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#315-361) performs a multiplication on the result of a division:
+	- quotient = gcd / remainder (node_modules/@openzeppelin/contracts/utils/math/Math.sol#337)
+	- (gcd,remainder) = (remainder,gcd - remainder * quotient) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#339-346)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+My1155.mintFree(uint256) (contracts/My1155.sol#41-50) contains a tautology or contradiction:
+	- require(bool,string)(id >= 0 && id <= 2,Invalid token ID) (contracts/My1155.sol#42)
+My1155.forgeMint(address,uint256,uint256) (contracts/My1155.sol#52-56) contains a tautology or contradiction:
+	- require(bool,string)(id >= 0 && id <= 6,Invalid token ID) (contracts/My1155.sol#54)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+INFO:Detectors:
+My1155.setForgeContract(address)._forge (contracts/My1155.sol#36) lacks a zero-check on :
+		- forgeContract = _forge (contracts/My1155.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+My1155.mintFree(uint256) (contracts/My1155.sol#41-50) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp >= lastMintTime[msg.sender] + FREE_MINT_COOLDOWN_SECS,Cooldown: Wait 1 min) (contracts/My1155.sol#43-46)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+ERC1155._asSingletonArrays(uint256,uint256) (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#380-400) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#384-399)
+ERC1155Utils.checkOnERC1155Received(address,address,address,uint256,uint256,bytes) (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#25-50) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#44-46)
+ERC1155Utils.checkOnERC1155BatchReceived(address,address,address,uint256[],uint256[],bytes) (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#60-87) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#81-83)
+Arrays._begin(uint256[]) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#142-146) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#143-145)
+Arrays._mload(uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#161-165) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#162-164)
+Arrays._swap(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#170-177) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#171-176)
+Arrays._castToUint256Array(address[]) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#180-184) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#181-183)
+Arrays._castToUint256Array(bytes32[]) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#187-191) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#188-190)
+Arrays._castToUint256Comp(function(address,address) returns(bool)) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#194-200) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#197-199)
+Arrays._castToUint256Comp(function(bytes32,bytes32) returns(bool)) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#203-209) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#206-208)
+Arrays.unsafeAccess(address[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#383-389) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#385-387)
+Arrays.unsafeAccess(bytes32[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#396-402) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#398-400)
+Arrays.unsafeAccess(uint256[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#409-415) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#411-413)
+Arrays.unsafeMemoryAccess(address[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#422-426) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#423-425)
+Arrays.unsafeMemoryAccess(bytes32[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#433-437) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#434-436)
+Arrays.unsafeMemoryAccess(uint256[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#444-448) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#445-447)
+Arrays.unsafeSetLength(address[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#455-459) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#456-458)
+Arrays.unsafeSetLength(bytes32[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#466-470) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#467-469)
+Arrays.unsafeSetLength(uint256[],uint256) (node_modules/@openzeppelin/contracts/utils/Arrays.sol#477-481) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Arrays.sol#478-480)
+Panic.panic(uint256) (node_modules/@openzeppelin/contracts/utils/Panic.sol#50-56) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Panic.sol#51-55)
+SlotDerivation.erc7201Slot(string) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#45-50) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#46-49)
+SlotDerivation.deriveArray(bytes32) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#64-69) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#65-68)
+SlotDerivation.deriveMapping(bytes32,address) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#74-80) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#75-79)
+SlotDerivation.deriveMapping(bytes32,bool) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#85-91) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#86-90)
+SlotDerivation.deriveMapping(bytes32,bytes32) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#96-102) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#97-101)
+SlotDerivation.deriveMapping(bytes32,uint256) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#107-113) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#108-112)
+SlotDerivation.deriveMapping(bytes32,int256) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#118-124) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#119-123)
+SlotDerivation.deriveMapping(bytes32,string) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#129-139) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#130-138)
+SlotDerivation.deriveMapping(bytes32,bytes) (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#144-154) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#145-153)
+StorageSlot.getAddressSlot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#66-70) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#67-69)
+StorageSlot.getBooleanSlot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#75-79) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#76-78)
+StorageSlot.getBytes32Slot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#84-88) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#85-87)
+StorageSlot.getUint256Slot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#93-97) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#94-96)
+StorageSlot.getInt256Slot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#102-106) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#103-105)
+StorageSlot.getStringSlot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#111-115) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#112-114)
+StorageSlot.getStringSlot(string) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#120-124) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#121-123)
+StorageSlot.getBytesSlot(bytes32) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#129-133) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#130-132)
+StorageSlot.getBytesSlot(bytes) (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#138-142) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#139-141)
+Strings.toString(uint256) (node_modules/@openzeppelin/contracts/utils/Strings.sol#45-63) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#50-52)
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#55-57)
+Strings.toChecksumHexString(address) (node_modules/@openzeppelin/contracts/utils/Strings.sol#111-129) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#116-118)
+Strings.escapeJSON(string) (node_modules/@openzeppelin/contracts/utils/Strings.sol#446-476) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#470-473)
+Strings._unsafeReadBytesOffset(bytes,uint256) (node_modules/@openzeppelin/contracts/utils/Strings.sol#484-489) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/Strings.sol#486-488)
+Math.add512(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#25-30) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#26-29)
+Math.mul512(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#37-46) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#41-45)
+Math.tryMul(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#73-84) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#76-80)
+Math.tryDiv(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#89-97) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#92-95)
+Math.tryMod(uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#102-110) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#105-108)
+Math.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#204-275) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#227-234)
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#240-249)
+Math.tryModExp(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#409-433) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#411-432)
+Math.tryModExp(bytes,bytes,bytes) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#449-471) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#461-470)
+Math.log2(uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#612-651) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/Math.sol#648-650)
+SafeCast.toUint(bool) (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#1157-1161) uses assembly
+	- INLINE ASM (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#1158-1160)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+INFO:Detectors:
+Context._contextSuffixLength() (node_modules/@openzeppelin/contracts/utils/Context.sol#25-27) is never used and should be removed
+Context._msgData() (node_modules/@openzeppelin/contracts/utils/Context.sol#21-23) is never used and should be removed
+ERC1155._burnBatch(address,uint256[],uint256[]) (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#353-358) is never used and should be removed
+ERC1155._mintBatch(address,uint256[],uint256[],bytes) (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#317-322) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+INFO:Detectors:
+Version constraint ^0.8.20 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess.
+It is used by:
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/access/Ownable.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol#3)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/token/ERC1155/utils/ERC1155Utils.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Arrays.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Comparators.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Context.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Panic.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/SlotDerivation.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/StorageSlot.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/Strings.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/Math.sol#4)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol#5)
+	- ^0.8.20 (node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol#4)
+	- ^0.8.20 (contracts/Forge.sol#2)
+	- ^0.8.20 (contracts/My1155.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Parameter My1155.setBaseUri(string)._baseUri (contracts/My1155.sol#28) is not in mixedCase
+Parameter My1155.setForgeContract(address)._forge (contracts/My1155.sol#36) is not in mixedCase
+Variable My1155.FREE_MINT_COOLDOWN_SECS (contracts/My1155.sol#18) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+Math.log2(uint256) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#612-651) uses literals with too many digits:
+	- r = r | byte(uint256,uint256)(x >> r,0x0000010102020202030303030303030300000000000000000000000000000000) (node_modules/@openzeppelin/contracts/utils/math/Math.sol#649)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+INFO:Detectors:
+My1155.FREE_MINT_COOLDOWN_SECS (contracts/My1155.sol#18) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+Forge.my1155 (contracts/Forge.sol#8) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:contracts/Forge.sol analyzed (23 contracts with 100 detectors), 78 result(s) found
